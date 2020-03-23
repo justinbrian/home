@@ -26,3 +26,15 @@ script:
   - npm run lint:hbs
   - npm run lint:js
   - npm test
+  - npm run build -- -prod # build app and prepare dist folder
+
+# deploy master branch to GitHub pages
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: 0162367411ec9c12d372be81709c906eb830cf2f
+  keep-history: true
+  on:
+    branch: master
+  local-dir: dist
+  verbose: true
